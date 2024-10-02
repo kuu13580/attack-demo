@@ -1,3 +1,4 @@
+import { CSRF } from "./cards/CSRF";
 import { OpenRedirect } from "./cards/OpenRedirect";
 import { XSS } from "./cards/XSS";
 
@@ -8,6 +9,7 @@ function App() {
         <h1>正規サイト</h1>
         <XSS />
         <OpenRedirect />
+        <CSRF />
       </div>
     </>
   );
