@@ -3,11 +3,13 @@ import { useState } from "react";
 
 export const SSRF = () => {
   const [url, setUrl] = useState("");
+  const [result, setResult] = useState("");
 
   const fetchPage = () => {
     axios
       .get("http://localhost:3000/ssrf", { params: { url: url } })
       .then((res) => {
+        setResult(res.data);
         console.log(res.data);
       });
   };
@@ -29,6 +31,8 @@ export const SSRF = () => {
           <button type="button" className="btn btn-primary" onClick={fetchPage}>
             取得
           </button>
+          <div className="mt-3">取得結果</div>
+          <div className="border p-3">{result}</div>
         </div>
       </div>
     </div>

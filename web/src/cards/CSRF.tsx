@@ -24,7 +24,7 @@ export const CSRF = () => {
 
   const authorize = () => {
     axios
-      .post("http://localhost:3000/authorize", { withCredentials: true })
+      .post("http://localhost:3000/authorize", null, { withCredentials: true })
       .then(() => {
         window.alert("リクエストに成功しました");
         reload();
@@ -36,7 +36,7 @@ export const CSRF = () => {
 
   const doubleSubmitCookie = () => {
     axios
-      .post("http://localhost:3000/double-submit-cookie", {
+      .post("http://localhost:3000/double-submit-cookie", null, {
         withCredentials: true,
         headers: {
           "X-Xsrftoken": cookies.filter((e) => e.name == "token")[0].value,

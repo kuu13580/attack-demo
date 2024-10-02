@@ -15,7 +15,7 @@ export const CSRF = () => {
 
   const attack = () => {
     axios
-      .post("http://localhost:3000/authorize", { withCredentials: true })
+      .post("http://localhost:3000/authorize", null, { withCredentials: true })
       .then(() => {
         window.alert("リクエストに成功しました");
         reload();
@@ -27,7 +27,7 @@ export const CSRF = () => {
 
   const doubleSubmitCookie = () => {
     axios
-      .post("http://localhost:3000/double-submit-cookie", {
+      .post("http://localhost:3000/double-submit-cookie", null, {
         withCredentials: true,
       })
       .then(() => {
@@ -56,6 +56,17 @@ export const CSRF = () => {
           >
             DoubleSubmitCookieリクエスト（ヘッダなし）
           </button>
+          <div className="border">
+            <div className="d-inline me-3">Cookieの一覧</div>
+            <button type="button" className="btn btn-primary" onClick={reload}>
+              再読み込み
+            </button>
+            {cookies.map((cookie) => (
+              <div key={cookie.name}>
+                {cookie.name}: {cookie.value}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
