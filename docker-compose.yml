@@ -25,3 +25,11 @@ services:
       - ./attack:/app
     working_dir: /app
     command: npm run start
+  private-api:
+    container_name: private-api
+    build: ./private-api
+    volumes:
+      - ./private-api/app:/app
+    working_dir: /app
+    expose:
+      - 80

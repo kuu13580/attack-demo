@@ -1,7 +1,9 @@
 import hashlib
 import random
+import requests
 from fastapi import FastAPI, HTTPException, Header, Response, Cookie
 from fastapi.middleware.cors import CORSMiddleware
+import urllib.parse
 
 app = FastAPI()
 validTokens = []
@@ -43,3 +45,8 @@ def double_submit_cookie(token: str = Cookie(None), X_Xsrftoken: str = Header(No
     if token != X_Xsrftoken:
         raise HTTPException(status_code=401, detail="Invalid X-XSRF-TOKEN")
     return { "status": "success" }
+
+@app.get("/ssrf")
+def ssrf(url: str):
+    encoded_url = urllib.parse.quote(url, safe=":/")
+    return requests.get(encoded_url).content

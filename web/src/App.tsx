@@ -1,5 +1,6 @@
 import { CSRF } from "./cards/CSRF";
 import { OpenRedirect } from "./cards/OpenRedirect";
+import { SSRF } from "./cards/SSRF";
 import { XSS } from "./cards/XSS";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <XSS />
         <OpenRedirect />
         <CSRF />
+        <SSRF />
       </div>
     </>
   );
