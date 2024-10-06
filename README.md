@@ -1,13 +1,5 @@
 # 攻撃体験
 
-## 事前準備
-
-`/etc/hosts`に攻撃サイト用のエイリアスを設定する
-
-```text
-127.0.0.1 attack.localhost
-```
-
 ## リンク
 
 ### 正規サイト
@@ -21,3 +13,14 @@
 ### API
 
 [http://localhost:3000](http://localhost:3000)
+
+## 各手法メモ
+
+### クリックジャッキング
+
+[攻撃対象のページ](http://localhost:4000/click-jacking)
+
+### SSRF
+
+外部からアクセスできないAPI
+[http://private-api/secret](http://private-api/secret)
